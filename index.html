@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Shivam Dhaba | Authentic Indian Food</title>
+  <meta
+    name="description"
+    content="Welcome to Shivam Dhaba — delicious Indian food, crispy pakoras, parathas, chai and more."
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --brown: #5a321c;
+      --dark-brown: #2f180d;
+      --light-brown: #8b5a35;
+      --cream: #fff7e8;
+      --gold: #d69a35;
+      --white: #ffffff;
+      --text: #352015;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--dark-brown);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 7%;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: white;
+      font-size: 13px;
+      display: block;
+      letter-spacing: 3px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .nav-btn {
+      background: var(--gold);
+      color: var(--dark-brown) !important;
+      padding: 9px 17px;
+      border-radius: 25px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 70px 7%;
+      background:
+        linear-gradient(rgba(47,24,13,0.78), rgba(47,24,13,0.78)),
+        url("https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #f8ead7;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 30px;
+      background: var(--gold);
+      color: var(--dark-brown);
+      text-decoration: none;
+      font-weight: 800;
+      margin-right: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #f0b94e;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #765b48;
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .about h2 {
+      color: var(--brown);
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .about p {
+      margin-bottom: 15px;
+      color: #5f4635;
+    }
+
+    /* MENU */
+    .menu {
+      background: #f5e5cd;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .food-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(70,35,15,0.12);
+      transition: 0.3s;
+    }
+
+    .food-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .food-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .food-info {
+      padding: 20px;
+    }
+
+    .food-info h3 {
+      color: var(--brown);
+      margin-bottom: 7px;
+    }
+
+    .food-info p {
+      color: #745e4e;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #a96514;
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    /* FEATURES */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 30px 15px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 5px 18px rgba(70,35,15,0.08);
+    }
+
+    .feature .icon {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      color: var(--brown);
+      margin-bottom: 7px;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: var(--brown);
+      color: white;
+    }
+
+    .cta h2 {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      margin-bottom: 25px;
+      color: #f3dfc7;
+    }
+
+    /* CONTACT */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .contact-box {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 5px 18px rgba(70,35,15,0.1);
+    }
+
+    .contact-box h3 {
+      color: var(--brown);
+      margin-bottom: 15px;
+      font-size: 25px;
+    }
+
+    .contact-item {
+      margin: 14px 0;
+    }
+
+    .contact-item strong {
+      color: var(--brown);
+    }
+
+    .map {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      border: 0;
+      border-radius: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark-brown);
+      color: #e8d6c1;
+      text-align: center;
+      padding: 25px 7%;
+    }
+
+    footer .footer-logo {
+      color: var(--gold);
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
+
+    /* WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 28px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.25);
+      z-index: 999;
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
+      nav {
+        padding: 13px 5%;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .hero {
+        min-height: 80vh;
+        padding: 60px 6%;
+      }
+
+      .about,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+      section {
+        padding: 55px 5%;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .btn {
+        margin-bottom: 10px;
+      }
+
+      .about img {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">
+      SHIVAM DHABA
+      <span>AUTHENTIC INDIAN TASTE</span>
+    </div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="nav-btn" href="#order">Order Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Authentic Taste.<br><span>Desi Heart.</span></h1>
+
+      <p>
+        Welcome to Shivam Dhaba — where traditional Indian flavours,
+        fresh ingredients and delicious food come together.
+      </p>
+
+      <a href="#menu" class="btn">View Menu</a>
+      <a href="#contact" class="btn btn-outline">Visit Us</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about">
+
+      <img
+        src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=1000&q=80"
+        alt="Indian food"
+      />
+
+      <div>
+        <h2>Welcome to Shivam Dhaba</h2>
+
+        <p>
+          At Shivam Dhaba, we believe great food brings people together.
+          Our menu is inspired by traditional Indian flavours and the
+          warm, welcoming spirit of a classic roadside dhaba.
+        </p>
+
+        <p>
+          From crispy pakoras and delicious parathas to refreshing chai,
+          every dish is prepared with care and served with a smile.
+        </p>
+
+        <a href="#menu" class="btn">Explore Our Menu</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu" id="menu">
+
+    <div class="section-title">
+      <h2>Our Popular Menu</h2>
+      <p>Freshly prepared and full of authentic Indian flavour</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="food-card">
+        <img
+          src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80"
+          alt="Pakora"
+        />
+        <div class="food-info">
+          <h3>Crispy Pakora</h3>
+          <p>Hot, crispy and perfectly spiced pakoras.</p>
+          <div class="price">₹80</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <img
+          src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80"
+          alt="Indian curry"
+        />
+        <div class="food-info">
+          <h3>Special Punjabi Thali</h3>
+          <p>A delicious combination of authentic Punjabi flavours.</p>
+          <div class="price">₹180</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <img
+          src="https://images.unsplash.com/photo-1578926288207-a90a5366759d?auto=format&fit=crop&w=800&q=80"
+          alt="Paratha"
+        />
+        <div class="food-info">
+          <h3>Stuffed Paratha</h3>
+          <p>Hot and crispy paratha served with curd and pickle.</p>
+          <div class="price">₹70</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <img
+          src="https://images.unsplash.com/photo-1567337710282-00832b415979?auto=format&fit=crop&w=800&q=80"
+          alt="Chole Bhature"
+        />
+        <div class="food-info">
+          <h3>Chole Bhature</h3>
+          <p>Classic Punjabi favourite, rich and flavorful.</p>
+          <div class="price">₹120</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <img
+          src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80"
+          alt="Masala Chai"
+        />
+        <div class="food-info">
+          <h3>Masala Chai</h3>
+          <p>Traditional Indian tea with aromatic spices.</p>
+          <div class="price">₹30</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <img
+          src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+          alt="Indian snacks"
+        />
+        <div class="food-info">
+          <h3>Mixed Snacks</h3>
+          <p>A tasty selection of our favourite Indian snacks.</p>
+          <div class="price">₹100</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section>
+
+    <div class="section-title">
+      <h2>Why Choose Shivam Dhaba?</h2>
+      <p>Good food, good people and great taste.</p>
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="icon">🥘</div>
+        <h3>Fresh Food</h3>
+        <p>Freshly prepared dishes every day.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">🌶️</div>
+        <h3>Authentic Taste</h3>
+        <p>Traditional Indian flavours and spices.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">❤️</div>
+        <h3>Made With Love</h3>
+        <p>Prepared with care for every customer.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">💰</div>
+        <h3>Great Value</h3>
+        <p>Delicious food at pocket-friendly prices.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="order">
+    <h2>Hungry?</h2>
+    <p>Enjoy the authentic taste of Shivam Dhaba today!</p>
+
+    <!-- Replace the number below with your WhatsApp number -->
+    <a
+      class="btn"
+      href="https://wa.me/91XXXXXXXXXX"
+      target="_blank"
+    >
+      Order on WhatsApp
+    </a>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <div class="section-title">
+      <h2>Visit Shivam Dhaba</h2>
+      <p>We'd love to serve you!</p>
+    </div>
+
+    <div class="contact">
+
+      <div class="contact-box">
+
+        <h3>Contact Us</h3>
+
+        <div class="contact-item">
+          <strong>📍 Address</strong><br>
+          Your Dhaba Address, Your City, Punjab
+        </div>
+
+        <div class="contact-item">
+          <strong>📞 Phone</strong><br>
+          +91 XXXXXXXXXX
+        </div>
+
+        <div class="contact-item">
+          <strong>🕐 Opening Hours</strong><br>
+          Monday – Sunday: 8:00 AM – 10:00 PM
+        </div>
+
+        <div class="contact-item">
+          <strong>🍽️ Speciality</strong><br>
+          Pakora • Paratha • Punjabi Food • Chai
+        </div>
+
+      </div>
+
+      <!-- Replace the Google Maps URL with your actual location -->
+      <iframe
+        class="map"
+        src="https://www.google.com/maps?q=Punjab,India&output=embed"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">SHIVAM DHABA</div>
+    <p>Authentic Indian Taste • Fresh Food • Happy Customers</p>
+    <p>© 2026 Shivam Dhaba. All Rights Reserved.</p>
+  </footer>
+
+  <!-- WHATSAPP BUTTON -->
+  <a
+    class="whatsapp"
+    href="https://wa.me/91XXXXXXXXXX"
+    target="_blank"
+    aria-label="Order on WhatsApp"
+  >
+    ☎
+  </a>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Shivam Dhaba | Authentic Indian Food</title>
+  <meta
+    name="description"
+    content="Welcome to Shivam Dhaba — delicious Indian food, crispy pakoras, parathas, chai and more."
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --brown: #5a321c;
+      --dark-brown: #2f180d;
+      --light-brown: #8b5a35;
+      --cream: #fff7e8;
+      --gold: #d69a35;
+      --white: #ffffff;
+      --text: #352015;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--dark-brown);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 7%;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: white;
+      font-size: 13px;
+      display: block;
+      letter-spacing: 3px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .nav-btn {
+      background: var(--gold);
+      color: var(--dark-brown) !important;
+      padding: 9px 17px;
+      border-radius: 25px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 70px 7%;
+      background:
+        linear-gradient(rgba(47,24,13,0.78), rgba(47,24,13,0.78)),
+        url("https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #f8ead7;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 30px;
+      background: var(--gold);
+      color: var(--dark-brown);
+      text-decoration: none;
+      font-weight: 800;
+      margin-right: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #f0b94e;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #765b48;
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .about h2 {
+      color: var(--brown);
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .about p {
+      margin-bottom: 15px;
+      color: #5f4635;
+    }
+
+    /* MENU */
+    .menu {
+      background: #f5e5cd;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .food-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(70,35,15,0.12);
+      transition: 0.3s;
+    }
+
+    .food-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .food-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .food-info {
+      padding: 20px;
+    }
+
+    .food-info h3 {
+      color: var(--brown);
+      margin-bottom: 7px;
+    }
+
+    .food-info p {
+      color: #745e4e;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #a96514;
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    /* FEATURES */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 30px 15px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 5px 18px rgba(70,35,15,0.08);
+    }
+
+    .feature .icon {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      color: var(--brown);
+      margin-bottom: 7px;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: var(--brown);
+      color: white;
+    }
+
+    .cta h2 {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      margin-bottom: 25px;
+      color: #f3dfc7;
+    }
+
+    /* CONTACT */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .contact-box {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 5px 18px rgba(70,35,15,0.1);
+    }
+
+    .contact-box h3 {
+      color: var(--brown);
+      margin-bottom: 15px;
+      font-size: 25px;
+    }
+
+    .contact-item {
+      margin: 14px 0;
+    }
+
+    .contact-item strong {
+      color: var(--brown);
+    }
+
+    .map {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      border: 0;
+      border-radius: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark-brown);
+      color: #e8d6c1;
+      text-align: center;
+      padding: 25px 7%;
+    }
+
+    footer .footer-logo {
+      color: var(--gold);
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
+
+    /* WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 28px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.25);
+      z-index: 999;
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
+      nav {
+        padding: 13px 5%;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .hero {
+        min-height: 80vh;
+        padding: 60px 6%;
+      }
+
+      .about,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+      section {
+        padding: 55px 5%;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .btn {
+        margin-bottom: 10px;
+      }
+
+      .about img {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">
+      SHIVAM DHABA
+      <span>AUTHENTIC INDIAN TASTE</span>
+    </div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="nav-btn" href="#order">Order Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Authentic Taste.<br><span>Desi Heart.</span></h1>
+
+      <p>
+        Welcome to Shivam Dhaba — where traditional Indian flavours,
+        fresh ingredients and delicious food come together.
+      </p>
+
+      <a href="#menu" class="btn">View Menu</a>
+      <a href="#contact" class="btn btn-outline">Visit Us</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about">
+
+      <img
+        src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=1000&q=80"
+        alt="Indian food"
+      />
+
+      <div>
+        <h2>Welcome to Shivam Dhaba</h2>
+
+        <p>
+          At Shivam Dhaba, we believe great food brings people together.
+          Our menu is inspired by traditional Indian flavours and the
+          warm, welcoming spirit of a classic roadside dhaba.
+        </p>
+
+        <p>
+          From crispy pakoras and delicious parathas to refreshing chai,
+          every dish is prepared with care and served with a smile.
+        </p>
+
+        <a href="#menu" class="btn">Explore Our Menu</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu" id="menu">
+
+    <div class="section-title">
+      <h2>Our Popular Menu</h2>
+      <p>Freshly prepared and full of authentic Indian flavour</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="food-card">
+        <img
+          src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80"
+          alt="Pakora"
+        />
+        <div class="food-info">
+          <h3>Crispy Pakora</h3>
+          <p>Hot, crispy and perfectly spiced pakoras.</p>
+          <div class="price">₹80</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <img
+          src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80"
+          alt="Indian curry"
+        />
+        <div class="food-info">
+          <h3>Special Punjabi Thali</h3>
+          <p>A delicious combination of authentic Punjabi flavours.</p>
+          <div class="price">₹180</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <img
+          src="https://images.unsplash.com/photo-1578926288207-a90a5366759d?auto=format&fit=crop&w=800&q=80"
+          alt="Paratha"
+        />
+        <div class="food-info">
+          <h3>Stuffed Paratha</h3>
+          <p>Hot and crispy paratha served with curd and pickle.</p>
+          <div class="price">₹70</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <img
+          src="https://images.unsplash.com/photo-1567337710282-00832b415979?auto=format&fit=crop&w=800&q=80"
+          alt="Chole Bhature"
+        />
+        <div class="food-info">
+          <h3>Chole Bhature</h3>
+          <p>Classic Punjabi favourite, rich and flavorful.</p>
+          <div class="price">₹120</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <img
+          src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80"
+          alt="Masala Chai"
+        />
+        <div class="food-info">
+          <h3>Masala Chai</h3>
+          <p>Traditional Indian tea with aromatic spices.</p>
+          <div class="price">₹30</div>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <img
+          src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+          alt="Indian snacks"
+        />
+        <div class="food-info">
+          <h3>Mixed Snacks</h3>
+          <p>A tasty selection of our favourite Indian snacks.</p>
+          <div class="price">₹100</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section>
+
+    <div class="section-title">
+      <h2>Why Choose Shivam Dhaba?</h2>
+      <p>Good food, good people and great taste.</p>
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="icon">🥘</div>
+        <h3>Fresh Food</h3>
+        <p>Freshly prepared dishes every day.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">🌶️</div>
+        <h3>Authentic Taste</h3>
+        <p>Traditional Indian flavours and spices.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">❤️</div>
+        <h3>Made With Love</h3>
+        <p>Prepared with care for every customer.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">💰</div>
+        <h3>Great Value</h3>
+        <p>Delicious food at pocket-friendly prices.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="order">
+    <h2>Hungry?</h2>
+    <p>Enjoy the authentic taste of Shivam Dhaba today!</p>
+
+    <!-- Replace the number below with your WhatsApp number -->
+    <a
+      class="btn"
+      href="https://wa.me/91XXXXXXXXXX"
+      target="_blank"
+    >
+      Order on WhatsApp
+    </a>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <div class="section-title">
+      <h2>Visit Shivam Dhaba</h2>
+      <p>We'd love to serve you!</p>
+    </div>
+
+    <div class="contact">
+
+      <div class="contact-box">
+
+        <h3>Contact Us</h3>
+
+        <div class="contact-item">
+          <strong>📍 Address</strong><br>
+          Your Dhaba Address, Your City, Punjab
+        </div>
+
+        <div class="contact-item">
+          <strong>📞 Phone</strong><br>
+          +91 XXXXXXXXXX
+        </div>
+
+        <div class="contact-item">
+          <strong>🕐 Opening Hours</strong><br>
+          Monday – Sunday: 8:00 AM – 10:00 PM
+        </div>
+
+        <div class="contact-item">
+          <strong>🍽️ Speciality</strong><br>
+          Pakora • Paratha • Punjabi Food • Chai
+        </div>
+
+      </div>
+
+      <!-- Replace the Google Maps URL with your actual location -->
+      <iframe
+        class="map"
+        src="https://www.google.com/maps?q=Punjab,India&output=embed"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">SHIVAM DHABA</div>
+    <p>Authentic Indian Taste • Fresh Food • Happy Customers</p>
+    <p>© 2026 Shivam Dhaba. All Rights Reserved.</p>
+  </footer>
+
+  <!-- WHATSAPP BUTTON -->
+  <a
+    class="whatsapp"
+    href="https://wa.me/91XXXXXXXXXX"
+    target="_blank"
+    aria-label="Order on WhatsApp"
+  >
+    ☎
+  </a>
+
+</body>
+</html>
